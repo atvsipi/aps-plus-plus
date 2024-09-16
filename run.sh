@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-node --trace-warnings server/index
+bun --trace-warnings server/index

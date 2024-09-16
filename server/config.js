@@ -3,7 +3,7 @@ module.exports = {
 
     // Game server domain.
     // If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    host: "localhost:26301",
+    host: 'localhost:26301',
 
     // Which port to run the web server on.
     port: 26301,
@@ -35,8 +35,6 @@ module.exports = {
     TILE_WIDTH: 400,
     TILE_HEIGHT: 400,
 
-
-
     // Miscellaneous
 
     // How long a chat message lasts in milliseconds.
@@ -57,17 +55,13 @@ module.exports = {
     REPL_WINDOW: false,
 
     // Welcome message once a player spawns.
-    WELCOME_MESSAGE: "You have spawned! Welcome to the game.\n"
-                    +"You will be invulnerable until you move or shoot.\n"
-                    +"Please report any bugs you encounter!",
-    
+    WELCOME_MESSAGE: 'You have spawned! Welcome to the game.\n' + 'You will be invulnerable until you move or shoot.\n' + 'Please report any bugs you encounter!',
+
     // How long a popup message lasts before fading out in milliseconds.
     MESSAGE_DISPLAY_TIME: 10_000,
 
     // How long you have to wait to respawn in seconds.
     RESPAWN_TIMEOUT: 0,
-    
-
 
     // Physics
 
@@ -89,15 +83,13 @@ module.exports = {
     // How strong the force is that confines entities to the map and portals apply to entities.
     ROOM_BOUND_FORCE: 0.01,
 
-
-
     // Gameplay
 
     // When an entity reaches a level, this function is called and returns how many points that entity gets for reaching that level.
-    LEVEL_SKILL_POINT_FUNCTION: level => {
+    LEVEL_SKILL_POINT_FUNCTION: (level) => {
         if (level < 2) return 0;
         if (level <= 40) return 1;
-        if (level <= 45 && level & 1 == 1) return 1;
+        if (level <= 45 && level & (1 == 1)) return 1;
         return 0;
     },
     // Show the health bar text or not.
@@ -128,10 +120,10 @@ module.exports = {
     BOT_START_XP: 0,
 
     // The chances of a player-bot upgrading a specific skill when skill upgrades are available.
-    BOT_SKILL_UPGRADE_CHANCES: [ 1, 1, 3, 4, 4, 4, 4, 2, 1, 1],
+    BOT_SKILL_UPGRADE_CHANCES: [1, 1, 3, 4, 4, 4, 4, 2, 1, 1],
 
     // The chances of a player-bot upgrading a specific amount of times before it stops upgrading.
-    BOT_CLASS_UPGRADE_CHANCES: [ 1, 5, 20, 37, 37],
+    BOT_CLASS_UPGRADE_CHANCES: [1, 5, 20, 37, 37],
 
     // The prefix of the player-bots' names.
     BOT_NAME_PREFIX: '§#888§[AI]§reset§ ',
@@ -145,8 +137,6 @@ module.exports = {
     // How many members a team can have in comparison to an unweighed team.
     // Example: Lets say we have team A and B. If the weigh of A is 2 and B is 1, then the game will try to give A twice as many members as B.
     TEAM_WEIGHTS: {},
-
-
 
     // Natural Spawns
 
@@ -174,69 +164,143 @@ module.exports = {
 
     // The possible food types that can spawn.
     FOOD_TYPES: [
-        [2000, [
-            [1024, 'egg'], [256, 'square'], [64, 'triangle'], [16, 'pentagon'], [4, 'betaPentagon'], [1, 'alphaPentagon']
-        ]],
-        [1, [
-            [3125, 'gem'], [625, 'shinySquare'], [125, 'shinyTriangle'], [25, 'shinyPentagon'], [5, 'shinyBetaPentagon'], [1, 'shinyAlphaPentagon']
-        ]],
-        [0.1, [
-            [6836, 'jewel'], [1296, 'legendarySquare'], [216, 'legendaryTriangle'], [36, 'legendaryPentagon'], [6, 'legendaryBetaPentagon'], [1, 'legendaryAlphaPentagon']
-        ]],
-        [0.005, [
-            /*[16807, 'egg'], */[2401, 'shadowSquare'], [343, 'shadowTriangle'], [49, 'shadowPentagon'], [7, 'shadowBetaPentagon'], [1, 'shadowAlphaPentagon']
-        ]],
-        [0.001, [
-            /*[65536, 'egg'], */[8192, 'rainbowSquare'], [1024, 'rainbowTriangle'], [64, 'rainbowPentagon'], [8, 'rainbowBetaPentagon'], [1, 'rainbowAlphaPentagon']
-        ]],
-        [0.0005, [
-            [59549, 'egg'], [6561, 'transSquare'], [729, 'transTriangle'], [81, 'transPentagon'], [9, 'transBetaPentagon'], [1, 'transAlphaPentagon']
-        ]],
-        [0.0001, [
-            [100000, 'sphere'], [10000, 'cube'], [1000, 'tetrahedron'], [100, 'octahedron'], [10, 'dodecahedron'], [1, 'icosahedron']
-        ]]
+        [
+            2000,
+            [
+                [1024, 'egg'],
+                [256, 'square'],
+                [64, 'triangle'],
+                [16, 'pentagon'],
+                [4, 'betaPentagon'],
+                [1, 'alphaPentagon'],
+            ],
+        ],
+        [
+            1,
+            [
+                [3125, 'gem'],
+                [625, 'shinySquare'],
+                [125, 'shinyTriangle'],
+                [25, 'shinyPentagon'],
+                [5, 'shinyBetaPentagon'],
+                [1, 'shinyAlphaPentagon'],
+            ],
+        ],
+        [
+            0.1,
+            [
+                [6836, 'jewel'],
+                [1296, 'legendarySquare'],
+                [216, 'legendaryTriangle'],
+                [36, 'legendaryPentagon'],
+                [6, 'legendaryBetaPentagon'],
+                [1, 'legendaryAlphaPentagon'],
+            ],
+        ],
+        [
+            0.005,
+            [
+                /*[16807, 'egg'], */ [2401, 'shadowSquare'],
+                [343, 'shadowTriangle'],
+                [49, 'shadowPentagon'],
+                [7, 'shadowBetaPentagon'],
+                [1, 'shadowAlphaPentagon'],
+            ],
+        ],
+        [
+            0.001,
+            [
+                /*[65536, 'egg'], */ [8192, 'rainbowSquare'],
+                [1024, 'rainbowTriangle'],
+                [64, 'rainbowPentagon'],
+                [8, 'rainbowBetaPentagon'],
+                [1, 'rainbowAlphaPentagon'],
+            ],
+        ],
+        [
+            0.0005,
+            [
+                [59549, 'egg'],
+                [6561, 'transSquare'],
+                [729, 'transTriangle'],
+                [81, 'transPentagon'],
+                [9, 'transBetaPentagon'],
+                [1, 'transAlphaPentagon'],
+            ],
+        ],
+        [
+            0.0001,
+            [
+                [100000, 'sphere'],
+                [10000, 'cube'],
+                [1000, 'tetrahedron'],
+                [100, 'octahedron'],
+                [10, 'dodecahedron'],
+                [1, 'icosahedron'],
+            ],
+        ],
     ],
 
     // The possible nest food types that can spawn.
     FOOD_TYPES_NEST: [
-        [1, [
-            [16, 'pentagon'], [ 4, 'betaPentagon'], [ 1, 'alphaPentagon']
-        ]]
+        [
+            1,
+            [
+                [16, 'pentagon'],
+                [4, 'betaPentagon'],
+                [1, 'alphaPentagon'],
+            ],
+        ],
     ],
 
     // The possible nest enemy types that can spawn.
     ENEMY_TYPES_NEST: [
-        [19, [
-            [1, 'crasher']
-        ]],
-        [1, [
-            [1, 'sentryGun'], [1, 'sentrySwarm'], [1, 'sentryTrap']
-        ]]
+        [19, [[1, 'crasher']]],
+        [
+            1,
+            [
+                [1, 'sentryGun'],
+                [1, 'sentrySwarm'],
+                [1, 'sentryTrap'],
+            ],
+        ],
     ],
 
     // The possible boss types that can spawn.
-    BOSS_TYPES: [{
-        bosses: ["eliteDestroyer", "eliteGunner", "eliteSprayer", "eliteBattleship", "eliteSpawner"],
-        amount: [5, 5, 4, 2, 1], chance: 2, nameType: "a",
-    },{
-        bosses: ["roguePalisade"],
-        amount: [4, 1], chance: 1, nameType: "castle",
-        message: "A strange trembling...",
-    },{
-        bosses: ["summoner", "eliteSkimmer", "nestKeeper"],
-        amount: [2, 2, 1], chance: 1, nameType: "a",
-        message: "A strange trembling...",
-    },{
-        bosses: ["paladin", "freyja", "zaphkiel", "nyx", "theia"],
-        amount: [1], chance: 0.01,
-        message: "The world tremors as the celestials are reborn anew!",
-    },{
-        bosses: ["julius", "genghis", "napoleon"],
-        amount: [1], chance: 0.1,
-        message: "The darkness arrives as the realms are torn apart!",
-    }],
-
-
+    BOSS_TYPES: [
+        {
+            bosses: ['eliteDestroyer', 'eliteGunner', 'eliteSprayer', 'eliteBattleship', 'eliteSpawner'],
+            amount: [5, 5, 4, 2, 1],
+            chance: 2,
+            nameType: 'a',
+        },
+        {
+            bosses: ['roguePalisade'],
+            amount: [4, 1],
+            chance: 1,
+            nameType: 'castle',
+            message: 'A strange trembling...',
+        },
+        {
+            bosses: ['summoner', 'eliteSkimmer', 'nestKeeper'],
+            amount: [2, 2, 1],
+            chance: 1,
+            nameType: 'a',
+            message: 'A strange trembling...',
+        },
+        {
+            bosses: ['paladin', 'freyja', 'zaphkiel', 'nyx', 'theia'],
+            amount: [1],
+            chance: 0.01,
+            message: 'The world tremors as the celestials are reborn anew!',
+        },
+        {
+            bosses: ['julius', 'genghis', 'napoleon'],
+            amount: [1],
+            chance: 0.1,
+            message: 'The darkness arrives as the realms are torn apart!',
+        },
+    ],
 
     // Default values for gamemode related things.
     // Do not change these, you'll likely break stuff!
@@ -246,13 +310,15 @@ module.exports = {
     MOTHERSHIP_LOOP: false,
     RANDOM_COLORS: false,
     SPACE_PHYSICS: false,
-    ARENA_TYPE: "rect",
+    ARENA_TYPE: 'rect',
     SPACE_MODE: false,
     GROUPS: false,
     TRAIN: false,
     MAZE: false,
     HUNT: false,
-    MODE: "ffa",
+    MODE: 'ffa',
     TAG: false,
     SPAWN_CONFINEMENT: {},
-}
+
+    COMPILE: true,
+};
