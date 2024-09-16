@@ -6,7 +6,7 @@
         "startOptimized": "bun --optimize-for-size --no-lazy --gc_interval=120 server/index.js",
         "devOptimized": "bun --optimize-for-size --no-lazy --gc_interval=120 --watch server/index.js",
         "start": "bun server/index.js",
-        "dev": "bun --watch server/index.js"
+        "dev": "PORT=3000 bun --watch server/index.js"
     },
     "dependencies": {
         "ws": "^8.13.0"
