@@ -10,6 +10,12 @@ console.log(`Loading ffi modules...`);
 
 const compilePath = path.join(__dirname, '../ffi/compiled');
 
+try {
+    fs.statSync(compilePath);
+} catch (err) {
+    fs.mkdirSync(compilePath);
+}
+
 async function processFfiFolder(directory) {
     let folder = fs.readdirSync(directory);
     for (let filename of folder) {
