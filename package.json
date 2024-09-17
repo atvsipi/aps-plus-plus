@@ -1,20 +1,22 @@
 {
-  "name": "Open Source Arras",
-  "version": "1.0.0",
-  "main": "server/index.js",
-  "scripts": {
-    "startOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 server/index",
-    "restartOnSaveOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 --watch server/index",
-    "start": "node server/index",
-    "restartOnSave": "node --watch server/index",
-    "host": "node standaloneClient/index",
-    "build": "node standaloneClient/build minify"
-  },
-  "dependencies": {
-    "ws": "^8.13.0"
-  },
-  "engines": {
-    "node": "18.x"
-  },
-  "license": "GPL-3.0"
+    "name": "Open Source Arras",
+    "version": "1.0.0",
+    "main": "server/index.js",
+    "devDependencies": {
+        "@napi-rs/cli": "^2.18.4"
+    },
+    "engines": {
+        "node": ">= 16"
+    },
+    "license": "GPL-3.0",
+    "scripts": {
+        "build": "napi build --platform ./server/compiled/",
+        "startOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 server/index.js",
+        "devOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 --watch server/index.js",
+        "dev": "node --watch server/index.js",
+        "start": "node server/index.js"
+    },
+    "dependencies": {
+        "ws": "^8.18.0"
+    }
 }
